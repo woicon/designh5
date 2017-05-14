@@ -32,7 +32,7 @@
 	.box-sizing (border-box);
 }
 body{
-	font-family: "Microsoft YaHei","Hiragino Sans GB", "lucida sans unicode", lucida, helvetica,  "WenQuanYi Micro Hei", sans-serif;
+	font-family: "Hiragino Sans GB", "Microsoft YaHei","lucida sans unicode", lucida, helvetica,  "WenQuanYi Micro Hei", sans-serif;
 	background:lighten(@ce,2%);
 }
 a{text-decoration:none;color:@c4;}
@@ -57,7 +57,7 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 //字体图标
 @import "icon.less";
 
-@headheight:40px;
+@headheight:46px;
 .header{
 	height:@headheight;background:@c2;position:relative;
 	&_logo{
@@ -98,12 +98,13 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 		position:absolute;left:@headheight;top:0;text-align:left;.display-flex();align-items: center;justify-content:center;bottom:0;
 		&_item{
 			.inline-block();color:@ce;font-size:11px;padding:0 14px;font-size:0;
-			i{font-size:16px;display:block;}
+			i{font-size:16px;display:block;padding:3px 0;}
 		}
 	}
 	&_menu{
 		left:inherit;right:0;
 	}
+	&_bar{text-align:center;right:20%;left:20%;}
 	&_sider{
 		position:absolute;left:0;top:@headheight;bottom:0;text-align:center;background:@c3;width:@headheight;
 		&_item{
@@ -113,7 +114,8 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 			}
 		}
 		.active{
-			background:@c5;
+			background:#fff;
+			i{color:@c4}
 		}
 		
 	}
@@ -121,17 +123,26 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 		position:fixed;left:@headheight;top:@headheight;bottom:0;background:#fff;
 		
 	}
+	.anm(){
+		.transition(.2s);
+	}
 	&_page{
 		width:70px;
 		&_add{
 			text-align:center;margin:10px;border:1px solid @ce;background:lighten(@ce,2%);padding:10px 0;font-size:12px;color:@c6;
+			cursor:pointer;.anm();
+			&:hover{
+				border:1px solid darken(@blue,5%);background:@blue;
+				i{color:#fff;}
+			}
 		}
 		&_layer{
 			border:1px solid @ce;.display-flex();justify-content: center;margin:10px;height:80px;align-items:center;color:@c6;
 			font-size:12px;
 			cursor:pointer;
+			.anm();
 			&:hover{
-				border-color:lighten(@blue,14%);
+				border-color:lighten(@blue,14%);background:lighten(@blue,52%);
 			}
 		}
 		.active{
@@ -147,13 +158,16 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 		z-index:-1;
 		&_window{
 			width:375px;height:667px;background:#fff;.transform(scale(0.8));box-shadow:0px 0px 22px rgba(90,90,90,.2);
+			overflow:hidden;
 		}
 	}
 	&_set{
 		position:fixed;right:0;top:@headheight;bottom:0;width:@rightwidth;background:#fff;
 	}
+	&_panel{
+		img{}
+	}
 }
-
 
 //project.html
 .project{
@@ -262,3 +276,40 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 		}
 	}
 }
+.footer{
+	text-align:center;
+	p{
+		line-height:60px;color:@cc;font-size:12px;
+	}
+}
+
+
+
+//画板里的控件样式
+
+
+.dragable{
+	position:absolute;left:30px;right:0;top:30px;bottom:0;border:1px solid @blue;width:240px;height:200px;z-index:100;
+	img{width:100%;}
+}
+.ui{
+	&_resizable{
+		&_handle{
+			width:8px;height:8px;border:1px solid @blue;position:absolute;background:#fff;
+		}
+	}
+}
+.resiz{
+	&_a{left:-4px;top:-4px;}
+	&_b{left:50%;top:-4px;margin-left:-4px;}
+	&_c{right:-4px;top:-4px;}
+	&_d{right:-4px;top:50%;margin-top:-4px;}
+	&_e{right:-4px;bottom:-4px;}
+	&_f{left:50%;bottom:-4px;margin-left:-4px;}
+	&_g{left:-4px;bottom:-4px;}
+	&_h{left:-4px;top:50%;margin-top:-4px;}
+}
+
+
+
+
