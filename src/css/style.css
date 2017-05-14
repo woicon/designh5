@@ -1,13 +1,3 @@
-/* Blue Grey 900 (material design colors) */
-/* Blue Grey 800 (material design colors) */
-/* Blue Grey 700 (material design colors) */
-/* Blue Grey 600 (material design colors) */
-/* Blue Grey 500 (material design colors) */
-/* Blue Grey 400 (material design colors) */
-/* Blue Grey 300 (material design colors) */
-/* Blue Grey 50 (material design colors) */
-/* Light Blue A700 (material design colors) */
-/* Red A400 (material design colors) */
 html,
 body,
 div,
@@ -147,6 +137,50 @@ a {
 .container {
   width: 1200px;
   margin: 0 auto;
+}
+input[type='text'],
+input[type='tel'],
+input[type='password'],
+input[type='email'] {
+  -webkit-appearance: 'none';
+  -moz-appearance: 'none';
+  outline: none;
+  border: 1px solid #CFD8DC;
+  padding: 8px 4px;
+  font-size: 14px;
+}
+input[type='text'] ::-webkit-input-placeholder,
+input[type='tel'] ::-webkit-input-placeholder,
+input[type='password'] ::-webkit-input-placeholder,
+input[type='email'] ::-webkit-input-placeholder {
+  color: #f2f4f5;
+}
+input[type='text'] ::-moz-placeholder,
+input[type='tel'] ::-moz-placeholder,
+input[type='password'] ::-moz-placeholder,
+input[type='email'] ::-moz-placeholder {
+  color: #f2f4f5;
+}
+input[type='text'] :-ms-input-placeholder,
+input[type='tel'] :-ms-input-placeholder,
+input[type='password'] :-ms-input-placeholder,
+input[type='email'] :-ms-input-placeholder {
+  color: #f2f4f5;
+}
+input[type='text']:focus,
+input[type='tel']:focus,
+input[type='password']:focus,
+input[type='email']:focus {
+  border-color: #37474F;
+}
+.btn {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  padding: 10px 20px;
+  background: #263238;
+  color: #ECEFF1;
+  font-size: 14px;
 }
 @font-face {
   font-family: 'h5';
@@ -1693,32 +1727,6 @@ a {
   vertical-align: middle;
   border-radius: 90px;
 }
-input[type='text'],
-input[type='tel'],
-input[type='password'],
-input[type='email'] {
-  -webkit-appearance: 'none';
-  -moz-appearance: 'none';
-  outline: none;
-  border: 1px solid #CFD8DC;
-  padding: 8px 4px;
-  font-size: 14px;
-}
-input[type='text']:focus,
-input[type='tel']:focus,
-input[type='password']:focus,
-input[type='email']:focus {
-  border-color: #37474F;
-}
-.btn {
-  display: inline-block;
-  *display: inline;
-  zoom: 1;
-  padding: 10px 20px;
-  background: #263238;
-  color: #ECEFF1;
-  font-size: 14px;
-}
 .draw_bar,
 .draw_menu {
   position: absolute;
@@ -1811,6 +1819,19 @@ input[type='email']:focus {
 }
 .draw_page .active {
   border: 2px solid #0091EA;
+  position: relative;
+}
+.draw_page .active:after {
+  content: '';
+  border: 8px solid transparent;
+  border-left-color: #0091EA;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  position: absolute;
+  right: -8px;
+  top: -8px;
 }
 .draw_view {
   display: -webkit-flex;
@@ -1822,12 +1843,17 @@ input[type='email']:focus {
   top: 40px;
   right: 200px;
   bottom: 0;
-  left: 0;
+  z-index: -1;
 }
 .draw_view_window {
   width: 375px;
   height: 667px;
   background: #fff;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
+  box-shadow: 0px 0px 22px rgba(90, 90, 90, 0.2);
 }
 .draw_set {
   position: fixed;
@@ -2009,22 +2035,43 @@ input[type='email']:focus {
   padding: 10px 20px;
 }
 .login_form {
-  width: 320px;
+  width: 420px;
   margin: 0 auto;
-  margin-top: 20%;
+  margin-top: 10%;
+  background: #fff;
+  padding: 30px;
 }
 .login_form input {
   width: 100%;
 }
 .login_form .formgroup {
-  margin-bottom: 10px;
+  margin-bottom: -1px;
+}
+.login_form input {
+  padding: 15px 10px;
+  position: relative;
+}
+.login_form input:focus {
+  z-index: 10;
 }
 .login_form .btn {
   width: 100%;
-  padding: 12px 0;
+  padding: 16px 0;
   text-align: center;
+  margin-top: 25px;
+  font-size: 18px;
 }
 .login_form a.regbtn {
   font-size: 12px;
   color: #0091EA;
+}
+.login_form .logo {
+  margin-bottom: 30px;
+}
+.login_form .logo a {
+  display: block;
+  background: url(../images/logo.png) no-repeat center center;
+  background-image: -webkit-image-set(url('../images/logo.png') 1x, url('../images/logo2x.png') 2x);
+  font-size: 0;
+  padding: 40px 0;
 }
