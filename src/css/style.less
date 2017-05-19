@@ -52,7 +52,7 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 	border:1px solid @cc;padding:8px 4px;font-size:14px;.placeholder(lighten(@ce,2%));
 	
 	&:focus{
-		border-color:@c3;
+		border-color:@c3;box-shadow:inset 0px 1px 2px rgba(44, 117, 186, 0.2);
 	}
 }
 .btn{
@@ -172,7 +172,7 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 	}
 	
 	&_set{
-		position:fixed;right:0;top:@headheight;bottom:0;width:@rightwidth;background:@ce;border-left:1px solid @cc;
+		position:fixed;right:0;top:@headheight;bottom:0;width:@rightwidth;background:#fff;border-left:1px solid @cc;
 		//box-shadow:-4px 0px 8px rgba(0, 0, 0, 0.1);
 		&_head{
 				text-align:center;font-size:0;padding:14px 0;
@@ -383,7 +383,7 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 		&_group{
 			font-size:0;.inline-block();
 			&>div{
-				font-size:12px;margin-left:-1px;border-radius:0;padding:4px 8px;position:relative;
+				font-size:12px;margin-left:-1px;border-radius:0;padding:4px 8px;position:relative;color:@c8;
 				&:first-child{
 					border-radius:@br 0 0 @br;
 				}
@@ -400,7 +400,7 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 	
 	//滑动调节杆
 	&_slider{
-		.inline-block();width:130px;height:4px;background:@cc;position:relative;border-radius:20px;border:1px solid @cc;
+		.inline-block();width:100px;height:4px;background:@cc;position:relative;border-radius:20px;border:1px solid @cc;
 		&_button{
 			position:absolute;left:-1px;top:-1px;bottom:-1px;background:@blue;width:20%;border-radius:20px;
 			&:after{content:'';
@@ -460,9 +460,12 @@ div[contenteditable='true']{
 		&_attr{font-size:12px;.inline-block();color:@c3;margin-right:10px;}
 	}
 	&_value{
-		.inline-block();max-width:50px;text-align:center;align-self: flex-end;position:relative;padding-right:15px;
+		.inline-block();max-width:56px;text-align:center;align-self: flex-end;position:relative;padding-right:15px;
 		input[type="text"]{
-			font-size:12px;width:100%;font-size:12px;padding:4px 4px 5px;text-align:center;border-radius:@br;
+			font-size:12px;width:100%;font-size:12px;padding:3px 4px;text-align:center;border-radius:@br 0 0 @br;position:relative;
+			&:focus{
+				border-color:@blue;z-index:10;
+			}
 		}
 		&_up,&_down{
 			position:absolute;right:0;padding:0;width:16px;.display-flex();
