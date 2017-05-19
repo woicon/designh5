@@ -382,7 +382,13 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 	//按钮
 	&_button{
 		border:1px solid @cc;background:lighten(@ce,5%);.inline-block();padding:4px 20px;font-size:12px;color:@c3;border-radius:@br;
-		cursor:pointer;
+		position:relative;.transition-duration(.5s);cursor:pointer;
+		i{
+			cursor:pointer;
+		}
+		&:hover{
+			border-color:@c9;background:@ce;z-index:2;
+		}
 		&_group{
 			font-size:0;.inline-block();
 			&>div{
@@ -434,9 +440,15 @@ div[contenteditable='true']{
 	}
 	&_txt{
 		&_block{
-			padding:10px;
+			padding:10px;.display-flex();justify-content:space-between;align-content:center;align-items:center;
 		}
-		&_attr{font-size:12px;width:50px;.inline-block();}
+		&_attr{font-size:12px;width:60px;.inline-block();}
+	}
+	&_value{
+		.inline-block();max-width:60px;text-align:center;align-self: flex-end;
+		input[type="text"]{
+			font-size:12px;width:100%;font-size:12px;padding:2px 4px;text-align:center;border-radius:@br;
+		}
 	}
 }
 
