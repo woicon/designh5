@@ -471,7 +471,7 @@ div[contenteditable='true']{
 			position:absolute;right:0;padding:0;width:16px;.display-flex();
 			justify-content:center;align-items: center;
 			&:after{
-				content:'';border:2px solid @cc;border-left:none;border-bottom:none;width:3px;height:3px;display:block;
+				content:'';border:1px solid @cc;border-left:none;border-bottom:none;width:3px;height:3px;display:block;
 			}
 			
 		}
@@ -482,7 +482,7 @@ div[contenteditable='true']{
 			}
 		}
 		&_down{
-			top:50%;bottom:0;border-radius:0 0 @br 0;
+			top:50%;bottom:0;border-radius:0 0 @br 0;margin-top:-1px;
 			&:after{
 				.transform(rotate(135deg));margin-top: -2px;
 			}
