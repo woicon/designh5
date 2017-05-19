@@ -365,8 +365,23 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 		&_item{
 			font-size:12px;line-height:24px;padding:0 14px;
 			&:hover{
-				background:@blue;color:#fff;
+				background:@blue;color:#fff; 
 			}
+		}
+	}
+	
+	//slelct
+	&_select{
+		position:relative;
+		&_button{text-align:left;padding:4px 32px 4px 4px !important;}
+		&:after{
+			border:1px solid @cc;content:'';display:block;width:16px;position:absolute;right:0;top:0;bottom:0;background:@ce;z-index:10;
+			border-radius:0 @br @br 0;
+		}
+		&:before{
+			content:'';border:2px solid @cc;border-left:none;border-bottom:none;width:4px;height:4px;display:block;
+			position:absolute;right:6px;top:7px;z-index:12;
+			.transform(rotate(135deg));
 		}
 	}
 	
@@ -390,6 +405,7 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 				&:last-child{
 					border-radius:0 @br @br 0;
 				}
+				i{position:relative;}
 				
 			}
 			.active{
@@ -400,7 +416,7 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 	
 	//滑动调节杆
 	&_slider{
-		.inline-block();width:100px;height:4px;background:@cc;position:relative;border-radius:20px;border:1px solid @cc;
+		.inline-block();width:100px;height:4px;background:@ce;position:relative;border-radius:20px;border:1px solid @cc;
 		&_button{
 			position:absolute;left:-1px;top:-1px;bottom:-1px;background:@blue;width:20%;border-radius:20px;
 			&:after{content:'';
