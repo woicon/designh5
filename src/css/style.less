@@ -13,6 +13,12 @@
 @ce:#ECEFF1;
 @blue:#0091EA;
 @red:#F44336;
+
+
+@headheight:46px;//头部高度
+@br:2px;//UI圆角角度
+@rightwidth:300px;//右侧设置宽度
+
 .reset();
 
 //less minix
@@ -64,7 +70,7 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 //字体图标
 @import "icon.less";
 
-@headheight:46px;
+
 .header{
 	height:@headheight;background:@c2;position:relative;box-shadow:0px 1px 5px rgba(0, 0, 0, 0.1);
 	&_logo{
@@ -97,7 +103,7 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 }
 
 //drqwing.html
-@rightwidth:200px;
+
 .draw{
 	
 	&_bar,&_menu{
@@ -173,6 +179,38 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 	
 	&_set{
 		position:fixed;right:0;top:@headheight;bottom:0;width:@rightwidth;background:#fff;
+		//box-shadow:-4px 0px 8px rgba(0, 0, 0, 0.1);
+		border-left:1px solid @ce;
+		&_head{
+				text-align:center;font-size:0;padding:14px 0;
+			&_group{
+				.inline-block();box-shadow:0px 1px 4px rgba(0, 0, 0, 0.07);border-radius:@br;
+			}	
+			&_item{
+				.inline-block();text-align:center;border:1px solid @cc;background:#fff;padding:6px 14px;margin-left:-1px;
+				font-size:12px;position:relative;
+				color:@c8;cursor:pointer;
+				transition-duration:.4s;
+				&:first-child{
+					border-radius:@br 0 0 @br;
+				}
+				&:last-child{
+					border-radius:0 @br @br 0;
+				}
+				&:hover{
+					border-color:@blue;color:@blue;
+					z-index:11;
+				}
+				
+			}
+			.active{
+				background:@blue;color:#fff;border-color:darken(@blue,10%);z-index:10;
+				&:hover{
+					background:darken(@blue,3%);border-color:darken(@blue,14%);
+				}
+				
+			}
+		}
 	}
 	
 	&_panel{
@@ -304,11 +342,16 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 
 
 .dragable{
-	position:absolute;left:30px;right:0;top:30px;bottom:0;border:1px solid @blue;width:240px;height:160px;z-index:100;
+	z-index:100;position:absolute;width:200px;height:200px;
 	img{width:100%;}
 }
+
+
+//ui控件
 .ui{
+	//缩放控件
 	&_resizable{
+		position:absolute;border:1px solid @blue;left:0;right:0;top:0;bottom:0;
 		&_handle{
 			width:8px;height:8px;border:1px solid @blue;position:absolute;background:#fff;
 			text-decoration:none;
@@ -317,10 +360,55 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 			cursor:move;position:absolute;left:0;right:0;bottom:0;top:0;
 		}
 		&_rotate{
-			position:absolute;left:50%;top:-30px;margin-left:-8px;background:#fff;border-radius:90px;width:20px;height:20px;box-shadow:0px 0px 2px rgba(0, 0, 0, 0.2);text-align:center;line-height:20px;font-size:12px;color:@blue;color:@c9;
+			position:absolute;left:50%;top:-30px;margin-left:-8px;background:#fff;border-radius:90px;width:20px;height:20px;box-shadow:0px 0px 2px rgba(0, 0, 0, 0.2);text-align:center;line-height:20px;font-size:12px;color:@blue;color:@c9;text-decoration:none;
 			cursor:pointer;
 			&:hover{
 				color:@blue;box-shadow:0px 0px 5px rgba(0, 0, 0, 0.4);
+			}
+		}
+	}
+	
+	//下拉选择
+	&_dropmenu{
+		border:1px solid @cc;max-height:400px;overflow-y:auto;
+		&_item{
+			font-size:12px;line-height:24px;padding:0 14px;
+			&:hover{
+				background:@blue;color:#fff;
+			}
+		}
+	}
+	
+	//按钮
+	&_button{
+		border:1px solid @cc;background:lighten(@ce,5%);.inline-block();padding:4px 20px;font-size:12px;color:@c3;border-radius:@br;
+		cursor:pointer;
+		&_group{
+			font-size:0;.inline-block();
+			&>div{
+				font-size:12px;margin-left:-1px;border-radius:0;padding:4px 8px;position:relative;
+				&:first-child{
+					border-radius:@br 0 0 @br;
+				}
+				&:last-child{
+					border-radius:0 @br @br 0;
+				}
+				
+			}
+			.active{
+				background:@blue;border:1px solid darken(@blue,5%);z-index:10;color:#fff;
+			}
+		}
+	}
+	
+	//滑动调节杆
+	&_slider{
+		.inline-block();width:130px;height:4px;background:@ce;position:relative;border-radius:20px;
+		&_button{
+			position:absolute;left:0;top:0;bottom:0;background:@blue;width:20%;border-radius:20px;
+			&:after{content:'';
+				position:absolute;right:-4px;width:8px;height:8px;border-radius:90px;background:@blue;border:2px solid @blue;background:#fff;top:-4px;
+				box-shadow:0px 1px 2px rgba(0, 1px, 2px, 0.1);
 			}
 		}
 	}
@@ -328,14 +416,29 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 .resiz{
 	&_nw{left:-4px;top:-4px;cursor:nw-resize;}
 	&_n{left:50%;top:-4px;margin-left:-4px;cursor:url(../images/head_logo.png);}
-	&_ne{right:-4px;top:-4px;cursor:ne-resize;}
+	&_ne{right:-4px;top:-4px;cursor:ns-resize;}
 	&_e{right:-4px;top:50%;margin-top:-4px;cursor:e-resize;}
 	&_se{right:-4px;bottom:-4px;cursor:se-resize;}
 	&_s{left:50%;bottom:-4px;margin-left:-4px;cursor:s-resize;}
 	&_sw{left:-4px;bottom:-4px;cursor:sw-resize;}
 	&_w{left:-4px;top:50%;margin-top:-4px;cursor:w-resize;}
 }
+div[contenteditable='true']{
+	outline:none;
+}
 
+
+.config{
+	&_title{
+		font-size:13px;padding:10px;
+	}
+	&_txt{
+		&_block{
+			padding:10px;
+		}
+		&_attr{font-size:12px;width:50px;.inline-block();}
+	}
+}
 
 
 
