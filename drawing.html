@@ -135,31 +135,57 @@
 					
 					<div class="config_txt">
 						<div class="config_title">文本设置</div>
-						<div class="config_txt_block">
-							<i class="config_txt_attr">大小</i>
-							<div class="ui_slider">
-								<div class="ui_slider_button"></div>
+						<div class="config_line">
+							<div class="config_txt_block">
+								<i class="config_txt_attr">大小</i>
+								
+								<div class="config_value">
+									<div class="ui_button config_value_up"></div>
+									<input type="text" value="12" />
+									<div class="ui_button config_value_down"></div>
+								</div>
 							</div>
-							<div class="config_value">
-								<input type="text" value="12" />
+							<div class="config_txt_block">
+								<i class="config_txt_attr">行高</i>
+								
+								<div class="config_value">
+									<div class="ui_button config_value_up"></div>
+									<input type="text" value="12" />
+									<div class="ui_button config_value_down"></div>
+								</div>
 							</div>
 						</div>
-						<div class="config_txt_block">
-							<i class="config_txt_attr">行高</i>
-							<div class="ui_slider">
-								<div class="ui_slider_button"></div>
+						<div class="config_line">
+							<div class="config_txt_block">
+								<i class="config_txt_attr">边距</i>
+								
+								<div class="config_value">
+									<div class="ui_button config_value_up"></div>
+									<input type="text" value="12" />
+									<div class="ui_button config_value_down"></div>
+								</div>
+							</div>
+							
+							<div class="config_txt_block">
+								<i class="config_txt_attr">字间距</i>
+								
+								<div class="config_value">
+									<div class="ui_button config_value_up"></div>
+									<input type="text" value="12" />
+									<div class="ui_button config_value_down"></div>
+								</div>
 							</div>
 						</div>
-						<div class="config_txt_block">
-							<i class="config_txt_attr">边距</i>
-							<div class="ui_slider">
-								<div class="ui_slider_button"></div>
-							</div>
-						</div>
+						
 						<div class="config_txt_block">
 							<i class="config_txt_attr">透明度</i>
 							<div class="ui_slider">
 								<div class="ui_slider_button"></div>
+							</div>
+							<div class="config_value">
+								<div class="ui_button config_value_up"></div>
+								<input type="text" value="12" />
+								<div class="ui_button config_value_down"></div>
 							</div>
 						</div>
 						<div class="config_txt_block">
@@ -175,10 +201,10 @@
 						<div class="config_txt_block">
 							<i class="config_txt_attr">样式</i>
 							<div class="ui_button_group">
-								<div class="ui_button active"><i class="icon-paragraph-left"></i></div>
-								<div class="ui_button"><i class="icon-paragraph-center"></i></div>
-								<div class="ui_button"><i class="icon-paragraph-right"></i></div>
-								<div class="ui_button"><i class="icon-paragraph-justify"></i></div>
+								<div class="ui_button active"><i class="icon-bold"></i></div>
+								<div class="ui_button"><i class="icon-underline"></i></div>
+								<div class="ui_button"><i class="icon-italic"></i></div>
+								<div class="ui_button"><i class="icon-strikethrough"></i></div>
 							</div>
 						</div>
 					</div>
@@ -186,8 +212,10 @@
 				</div>
 				
 				<!-- 动画设置 -->
-				<div id="animation">
-					<div class="ui_button add_animation" data-dropmenu="animation_type">添加动画</div>
+				<div class="anmination" id="animation">
+					<div class="animation_head">
+						<div class="ui_button add_animation" data-dropmenu="animation_type">添加动画</div>
+					</div>
 					<div class="ui_dropmenu" id="animation_type">
 						<div class="animation_type">
 							<div class="ui_dropmenu_item">无</div>

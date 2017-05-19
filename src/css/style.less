@@ -1,5 +1,4 @@
 @import "3L.less";
-
 //全局color 
 @c2:#263238;
 @c3:#37474F;
@@ -14,10 +13,9 @@
 @blue:#0091EA;
 @red:#F44336;
 
-
 @headheight:46px;//头部高度
 @br:2px;//UI圆角角度
-@rightwidth:300px;//右侧设置宽度
+@rightwidth:260px;//右侧设置宽度
 
 .reset();
 
@@ -33,9 +31,8 @@
 .inline-block(){
 	display:inline-block;*display:inline;zoom:1;
 }
-.anm(){
-		.transition(.2s);
-	}
+.anm(){.transition(.2s);}
+
 //全局的设置
 *{
 	.box-sizing (border-box);
@@ -69,8 +66,6 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 
 //字体图标
 @import "icon.less";
-
-
 .header{
 	height:@headheight;background:@c2;position:relative;box-shadow:0px 1px 5px rgba(0, 0, 0, 0.1);
 	&_logo{
@@ -103,7 +98,6 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 }
 
 //drqwing.html
-
 .draw{
 	
 	&_bar,&_menu{
@@ -178,9 +172,8 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 	}
 	
 	&_set{
-		position:fixed;right:0;top:@headheight;bottom:0;width:@rightwidth;background:#fff;
+		position:fixed;right:0;top:@headheight;bottom:0;width:@rightwidth;background:@ce;border-left:1px solid @cc;
 		//box-shadow:-4px 0px 8px rgba(0, 0, 0, 0.1);
-		border-left:1px solid @ce;
 		&_head{
 				text-align:center;font-size:0;padding:14px 0;
 			&_group{
@@ -339,13 +332,10 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 
 
 //画板里的控件样式
-
-
 .dragable{
 	z-index:100;position:absolute;width:200px;height:200px;
 	img{width:100%;}
 }
-
 
 //ui控件
 .ui{
@@ -370,7 +360,7 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 	
 	//下拉选择
 	&_dropmenu{
-		border:1px solid @cc;max-height:400px;overflow-y:auto;
+		border:1px solid @cc;max-height:400px;overflow-y:auto;border-radius:@br;box-shadow:0px 1px 5px rgba(0, 0, 0, 0.22);
 		&_item{
 			font-size:12px;line-height:24px;padding:0 14px;
 			&:hover{
@@ -409,16 +399,23 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 	
 	//滑动调节杆
 	&_slider{
-		.inline-block();width:130px;height:4px;background:@ce;position:relative;border-radius:20px;
+		.inline-block();width:130px;height:4px;background:@cc;position:relative;border-radius:20px;border:1px solid @cc;
 		&_button{
-			position:absolute;left:0;top:0;bottom:0;background:@blue;width:20%;border-radius:20px;
+			position:absolute;left:-1px;top:-1px;bottom:-1px;background:@blue;width:20%;border-radius:20px;
 			&:after{content:'';
 				position:absolute;right:-4px;width:8px;height:8px;border-radius:90px;background:@blue;border:2px solid @blue;background:#fff;top:-4px;
 				box-shadow:0px 1px 2px rgba(0, 1px, 2px, 0.1);
+				
+			}
+			&:hover{
+				&:after{
+					box-shadow:0px 1px 5px rgba(0, 0, 0, 0.68);
+				}
 			}
 		}
 	}
 }
+
 .resiz{
 	&_nw{left:-4px;top:-4px;cursor:nw-resize;}
 	&_n{left:50%;top:-4px;margin-left:-4px;cursor:url(../images/head_logo.png);}
@@ -429,25 +426,62 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 	&_sw{left:-4px;bottom:-4px;cursor:sw-resize;}
 	&_w{left:-4px;top:50%;margin-top:-4px;cursor:w-resize;}
 }
+
 div[contenteditable='true']{
 	outline:none;
 }
 
-
+#elmconfig{
+	background:#fff;
+}
+//
+.animation{
+	
+	&_head{
+		.display-flex();justify-content:center;align-items:center;padding:15px 0;
+	}
+}
+//
 .config{
 	&_title{
-		font-size:13px;padding:10px;
+		font-size:13px;padding:10px;font-weight:700;color:@c3;
+	}
+	&_line{
+		.display-flex();justify-content:space-between;
 	}
 	&_txt{
 		&_block{
 			padding:10px;.display-flex();justify-content:space-between;align-content:center;align-items:center;
+			.ui_slider{
+				justify-content:space-around;
+			}
 		}
-		&_attr{font-size:12px;width:60px;.inline-block();}
+		&_attr{font-size:12px;.inline-block();color:@c3;margin-right:10px;}
 	}
 	&_value{
-		.inline-block();max-width:60px;text-align:center;align-self: flex-end;
+		.inline-block();max-width:50px;text-align:center;align-self: flex-end;position:relative;padding-right:15px;
 		input[type="text"]{
-			font-size:12px;width:100%;font-size:12px;padding:2px 4px;text-align:center;border-radius:@br;
+			font-size:12px;width:100%;font-size:12px;padding:4px 4px 5px;text-align:center;border-radius:@br;
+		}
+		&_up,&_down{
+			position:absolute;right:0;padding:0;width:16px;.display-flex();
+			justify-content:center;align-items: center;
+			&:after{
+				content:'';border:2px solid @cc;border-left:none;border-bottom:none;width:3px;height:3px;display:block;
+			}
+			
+		}
+		&_up{
+			bottom:50%;top:0;border-radius:0 @br 0 0;
+			&:after{
+				.transform(rotate(-45deg));margin-bottom: -2px;
+			}
+		}
+		&_down{
+			top:50%;bottom:0;border-radius:0 0 @br 0;
+			&:after{
+				.transform(rotate(135deg));margin-top: -2px;
+			}
 		}
 	}
 }
