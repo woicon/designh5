@@ -365,7 +365,7 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 		&_item{
 			font-size:12px;line-height:24px;padding:0 14px;
 			&:hover{
-				background:@blue;color:#fff; 
+				background:@blue;color:#fff;border-style:dashed 
 			}
 		}
 	}
@@ -379,10 +379,28 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 			border-radius:0 @br @br 0;
 		}
 		&:before{
-			content:'';border:2px solid @cc;border-left:none;border-bottom:none;width:4px;height:4px;display:block;
+			content:'';border:1px solid @cc;border-left:none;border-bottom:none;width:4px;height:4px;display:block;
 			position:absolute;right:6px;top:7px;z-index:12;
 			.transform(rotate(135deg));
 		}
+		&_dropmenu{
+			position:absolute;top:100%;background:#fff;border-radius:@br;border:1px solid @cc;min-width:100px;z-index:90;margin-top:-1px;
+			box-shadow:0px 1px 3px rgba(0, 0, 0, 0.13);
+			
+		}
+		&_item{
+				padding:5px 10px;font-size:12px;border:1px solid transparent;margin:0 -1px;
+				.transition-duration(.2s);cursor:pointer;
+				&:last-child{
+					border-radius:0 0 @br @br;margin-bottom:-1px;
+				}
+				&:first-child{
+					border-radius:@br @br 0 0;margin-top:-1px;
+				}
+				&:hover{
+					background:@blue;color:#fff;
+				}
+			}
 	}
 	
 	//按钮
