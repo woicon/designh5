@@ -172,8 +172,8 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 	}
 	
 	&_set{
-		position:fixed;right:0;top:@headheight;bottom:0;width:@rightwidth;background:#fff;border-left:1px solid @cc;
-		//box-shadow:-4px 0px 8px rgba(0, 0, 0, 0.1);
+		position:fixed;right:0;top:@headheight;bottom:0;width:@rightwidth;background:#fff;// border-left:1px solid @cc;
+		box-shadow:-2px 0px 12px rgba(0, 0, 0, 0.1);
 		&_head{
 				text-align:center;font-size:0;padding:14px 0;
 			&_group{
@@ -373,9 +373,16 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 	//slelct
 	&_select{
 		position:relative;
-		&_button{text-align:left;padding:4px 32px 4px 4px !important;}
+		&_button{text-align:left;padding:4px 32px 4px 4px !important;
+			
+		}
+		&:hover{
+				.ui_select_dropmenu{
+					visibility: inherit;
+				}
+			}
 		&:after{
-			border:1px solid @cc;content:'';display:block;width:16px;position:absolute;right:0;top:0;bottom:0;background:@ce;z-index:10;
+			border:1px solid @cc;content:'';display:block;width:14px;position:absolute;right:0;top:0;bottom:0;background:@ce;z-index:10;
 			border-radius:0 @br @br 0;
 		}
 		&:before{
@@ -385,7 +392,8 @@ input[type='text'],input[type='tel'],input[type='password'],input[type='email']{
 		}
 		&_dropmenu{
 			position:absolute;top:100%;background:#fff;border-radius:@br;border:1px solid @cc;min-width:100px;z-index:90;margin-top:-1px;
-			box-shadow:0px 1px 3px rgba(0, 0, 0, 0.13);
+			box-shadow:0px 1px 3px rgba(0, 0, 0, 0.13);visibility:hidden;
+			.transition-duration(.5s);
 			
 		}
 		&_item{
@@ -503,9 +511,15 @@ div[contenteditable='true']{
 		}
 		&_up,&_down{
 			position:absolute;right:0;padding:0;width:16px;.display-flex();
-			justify-content:center;align-items: center;
+			justify-content:center;align-items: center;cursor:pointer;
 			&:after{
 				content:'';border:1px solid @cc;border-left:none;border-bottom:none;width:3px;height:3px;display:block;
+			}
+			&:hover{
+				border:1px solid @blue;background:lighten(@blue,51%);
+				&:after{
+					border-color:@blue;
+				}
 			}
 			
 		}

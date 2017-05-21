@@ -134,7 +134,7 @@
 				<div id="elmconfig">
 					
 					<div class="config_txt">
-						<div class="config_title">文本设置</div>
+						<div class="config_title"><i class="icon-table"></i>文本设置</div>
 						<div class="config_line">
 							<div class="config_txt_block">
 								<i class="config_txt_attr">大小</i>
@@ -237,6 +237,7 @@
 								<div class="ui_select">
 									<div class="ui_button ui_select_button">实线</div>
 									<div class="ui_select_dropmenu">
+										<div class="ui_select_item">无</div>
 										<div class="ui_select_item">实线</div>
 										<div class="ui_select_item">虚线</div>
 										<div class="ui_select_item">点线</div>
@@ -258,6 +259,7 @@
 							<i class="config_txt_attr">边框位置</i>
 							<div class="ui_button_group">
 								<div class="ui_button active"><i class="icon-bold"></i></div>
+								<div class="ui_button"><i class="icon-underline"></i></div>
 								<div class="ui_button"><i class="icon-underline"></i></div>
 								<div class="ui_button"><i class="icon-italic"></i></div>
 								<div class="ui_button"><i class="icon-strikethrough"></i></div>
@@ -392,6 +394,7 @@ var startDrag = function(bar, target, callback){
 			var disX = nowX - params.currentX, disY = nowY - params.currentY;
 			target.style.left = parseInt(params.left) + disX + "px";
 			target.style.top = parseInt(params.top) + disY + "px";
+			document.pro
 		}
 		
 		if (typeof callback == "function") {
